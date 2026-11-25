@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Deepak kumar yadav,Aman singh,Ayush Gupta",
+  "author": "Shubham Kumar (Lead Backend Architect), Deepak Kumar Yadav, Aman Singh, Ayush Gupta",
   "license": "ISC",
   "dependencies": {
     "@clerk/clerk-sdk-node": "^4.13.23",

@@ -50,6 +50,6 @@
   },
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
   "main": "eslint.config.js",
-  "author": "Deepak kumar yadav,Aman singh ,Ayush Gupta",
+  "author": "Shubham Kumar, Deepak Kumar Yadav, Aman Singh, Ayush Gupta",
   "license": "ISC"
 }

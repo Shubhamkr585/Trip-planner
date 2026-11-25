@@ -7,11 +7,14 @@
   [![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white)](https://nodejs.org/)
   [![Socket.io](https://img.shields.io/badge/Socket.io-black?style=flat&logo=socket.io&badgeColor=010101)](https://socket.io/)
   [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+  [![GitHub](https://img.shields.io/badge/GitHub-Shubhamkr585%2FTrip--planner-181717?style=flat&logo=github)](https://github.com/Shubhamkr585/Trip-planner)
 
   <h3>
     <a href="https://trip-planner-psi-jade.vercel.app/" target="_blank">Live Demo</a>
     <span> | </span>
     <a href="https://trip-planner-oyp4.onrender.com" target="_blank">Backend API</a>
+    <span> | </span>
+    <a href="https://github.com/Shubhamkr585/Trip-planner" target="_blank">GitHub Repository</a>
   </h3>
 </div>
 
@@ -58,6 +61,35 @@
 
 ---
 
+## 👥 Engineering Team & Technical Ownership
+
+Voyage was built as a collaborative group engineering project with clear separation of concerns across real-time backend systems, cloud pipelines, and interactive client architecture.
+
+### Backend Systems & Cloud Architecture (Owned by Shubham Kumar)
+**Shubham Kumar ([@Shubhamkr585](https://github.com/Shubhamkr585)) — Lead Backend & Systems Architect**
+
+- **⚡ Real-Time Synchronization Engine & Caching Layer (`server/socket.js`)**:
+  - Architected room-scoped bidirectional event routing with **Socket.io** (live itinerary changes, member locations, trip chat, broadcast notifications).
+  - Implemented an in-memory **Redis** caching tier with an LRU trimming policy (`lTrim -100 -1`) to serve the latest 100 messages at sub-millisecond latencies before asynchronously persisting to MongoDB, preventing database write starvation under high message volumes.
+- **🛡️ Authentication & User Lifecycle Pipeline (`server/middleware/auth.js`, `server/routes/users.js`)**:
+  - Integrated **Clerk Node SDK** to intercept and verify RS256 JWT bearer tokens on all protected API routes.
+  - Built automated synchronization between Clerk identities and MongoDB `User` documents, injecting validated user context (`req.dbUser`) into Express route handlers.
+- **🤖 Dual-LLM AI Pipeline (`server/services/ai.js`, `server/routes/trips.js`)**:
+  - Engineered hybrid AI capabilities: **Groq SDK (Llama 3.1)** for sub-second, low-latency conversational travel assistance and **Google Gemini 2.5 Flash** for multimodal trip finalization and markdown journal generation.
+- **🎙️ WebRTC Voice Room Infrastructure (`server/routes/voice.js`)**:
+  - Implemented the token exchange service using **LiveKit Server SDK**, issuing cryptographically signed, short-lived JWTs to authenticate clients into scoped WebRTC audio rooms.
+- **🗄️ Relational Data Modeling & MongoDB Schemas (`server/models/`)**:
+  - Designed the relational data schema in **Mongoose** connecting Trips (unique 6-character join codes, member access tiers), Checkpoints, Notes, Expenses, Messages, and Notifications.
+- **📸 Media Pipeline & DevOps (`server/routes/media.js`, `docker-compose.yml`)**:
+  - Configured streaming media ingestion via **Multer** directly to **Cloudinary**, preventing disk I/O bottlenecks.
+  - Authored production **Docker** containers and **docker-compose** multi-service orchestration.
+
+### Frontend Client & UI/UX Architecture
+- **Collaborators:** Deepak Kumar Yadav, Aman Singh, Ayush Gupta
+  - Developed the React 19 Single Page Application (Vite, Tailwind CSS, Shadcn UI, Leaflet interactive maps, LiveKit WebRTC client integration).
+
+---
+
 ## 🚀 Getting Started
 
 Follow these instructions to set up the project locally.
@@ -69,8 +101,8 @@ Follow these instructions to set up the project locally.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Deepak-kumar-yadav-815/Trip-planner
-cd voyage
+git clone https://github.com/Shubhamkr585/Trip-planner.git
+cd Trip-planner
 ```
 
 ### 2. Install Dependencies
